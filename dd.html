@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+ <title>가고 싶은 나라</title>
+
+</head>
+
+<body>
+
+<button id='add_btn' onClick='add()'>추가</button>
+
+<button id='remove_btn' onClick='remove()'>삭제</button>
+
+<button id='insert_btn' onClick='insert()'>앞에 삽입</button>
+
+<h1>가고 싶은 나라</h1>
+
+<ul>
+
+ <li>스코틀랜드</li>
+
+ <li>스위스</li>
+
+ <li>체코</li>
+
+</ul>
+
+<script>
+
+var ul_elm = document.getElementsByTagName('ul')[0];
+
+function add(){
+
+ var node = document.createElement('li');
+
+ node.innerHTML=prompt("추가할 나라이름?","");
+
+ ul_elm.appendChild(node);
+
+}
+
+function remove(){
+
+ var li_elm = document.getElementsByTagName('li');
+
+ var remove_name =prompt("삭제할 나라이름?","");
+
+ for(var i=0; i<li_elm.length;i++){
+
+  if(li_elm[i].innerHTML == remove_name) {
+
+   ul_elm.removeChild(li_elm[i]);
+
+  }
+
+ }
+
+}
+
+function insert(){
+
+ var li_elm = document.getElementsByTagName('li');
+
+ var pos_name =prompt("어느 나라앞에 삽입할까요?","");
+
+ var insert_name =prompt("삽입할 나라 이름은?","");
+
+ for(var i=0; i<li_elm.length;i++){
+
+  if(li_elm[i].innerHTML == pos_name) {
+
+   var node = document.createElement('li');
+
+   node.innerHTML=insert_name;
+
+   ul_elm.insertBefore(node,li_elm[i]);
+
+   break;
+
+  }
+
+ }
+
+}
+
+</script>
+
+</body>
+
+</html>
+[출처] 소심하게 만든 저의 HTMLㅎㅎ (소프트웨어놀이터(코딩&메이커)) |작성자 hobby799
